@@ -81,6 +81,10 @@
 
     const Calculator = () => {
       const [display, setDisplay] = React.useState("");
+      
+      const handleNumberClick = (value) => {
+        setDisplay(`${display}${value}`)
+      };
 
       return (
         <div class="calculator">
@@ -90,24 +94,44 @@
           <div class="keyboard">
             <Button
               value = "7"
-              onNumberClick={(value) => {
-                setDisplay(`${display}${value}`)
-              }}
+              onNumberClick={handleNumberClick}
             />
             <Button
               value = "8"
-              onNumberClick={(value) => {
-                setDisplay(`${display}${value}`)
-              }}
+              onNumberClick={handleNumberClick}
             />
-            <button>9</button>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>0</button>
+            <Button
+              value = "9"
+              onNumberClick={handleNumberClick}
+            />
+            <Button
+              value = "4"
+              onNumberClick={handleNumberClick}
+            />
+            <Button
+              value = "5"
+              onNumberClick={handleNumberClick}
+            />
+            <Button
+              value = "6"
+              onNumberClick={handleNumberClick}
+            />
+            <Button
+              value = "1"
+              onNumberClick={handleNumberClick}
+            />
+            <Button
+              value = "2"
+              onNumberClick={handleNumberClick}
+            />
+            <Button
+              value = "3"
+              onNumberClick={handleNumberClick}
+            />
+            <Button
+              value = "0"
+              onNumberClick={handleNumberClick}
+            />
           </div>
         </div>
         );
