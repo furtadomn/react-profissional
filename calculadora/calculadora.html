@@ -71,6 +71,16 @@
     .error {
       color: red;
     }
+
+    .history {
+      padding: 0 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      height: 100px;
+      overflow-y: scroll;
+      margin-bottom: 8px;
+      text-align: right;
+    }
   </style>
   <title>Calculadora - React Profissional</title>
 </head>
@@ -90,7 +100,7 @@
     ];
 
     const advacedKeys = [
-      "(",")"
+      "(",")","Hist"
     ]
 
     const Header = () => <div className="header">Calculadora</div>;
@@ -109,7 +119,9 @@
     const Calculator = () => {
       const [display, setDisplay] = React.useState("");
       const [error, setError] = React.useState();
-      const [showAd, toggleAd] = React.useState(false);
+      const [showAd, toggleAd] = React.useState(true);
+      const [history, setHistory] = React.useState([]);
+      const [showHist, toggleHist] = React.useState(true);
 
       React.useEffect(() => {
         if (error) {
@@ -119,7 +131,12 @@
 
       const doTheMath = () => {
         try {
-          setDisplay("" + eval(display));
+          const result = eval(display)
+          setHistory([].concat(history, {
+            calculation: display,
+            result
+          }));
+          setDisplay(`${result}`);
         } catch (err) {
           setError(`Invalid expression: ${err.message}`);
         }
@@ -138,6 +155,10 @@
             break;
           case "Ad":
             toggleAd(!showAd);
+            toggleHist(false);
+            break;
+          case "Hist":
+            toggleHist(!showHist);
             break;
           default: 
             setDisplay(`${display}${value}`);
@@ -160,6 +181,13 @@
 
       return (
         <div className="calculator">
+          {showHist && (
+            <div className="history">
+              {history.map(({ calculation, result }) => (
+                <p>{`${calculation} = ${result}`}</p>
+              ))}    
+            </div>
+          )}
           <input
             type="text"
             className="display"
@@ -191,7 +219,7 @@
             {keyboard.map(buildButtonKey)}
           </div>
         </div>
-        );
+      );
     }
 
     const App = () => (
