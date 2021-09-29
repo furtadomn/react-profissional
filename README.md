@@ -4,7 +4,9 @@
 
 <br/>
 
-### Primeiro projeto realizado: [Calculadora](https://github.com/furtadomn/react-profissional/tree/master/calculadora).
+#### Primeiro projeto realizado: [Calculadora](https://github.com/furtadomn/react-profissional/tree/master/calculadora).
+
+#### -> Interaja com a calculadora [aqui](https://codepen.io/furtadomn/pen/ExXrpJG) ! :wink:
 
 <br/>
 

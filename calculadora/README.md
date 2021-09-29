@@ -5,6 +5,8 @@
 
 A calculadora é exibida, em um primeiro momento, em sua forma simples. Ao clicarmos no botão "Ad" (advanced), temos a exibição dos botões avançados. Podemos também clicar em "Hist" (history) para a exibição do histórico de operações e resultados.
 
+-> Interaja com a calculadora [aqui](https://codepen.io/furtadomn/pen/ExXrpJG) ! :wink:
+
 <br/>
 
 <img src="src/images/calc-exib-simples.png" alt="calculadora exibição simples" width="400"/>
